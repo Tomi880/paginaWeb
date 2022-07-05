@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from crud.models import *
 
 # Create your views here.
 def root(request):
