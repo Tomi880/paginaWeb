@@ -1,0 +1,259 @@
+ .u-section-1 {
+  background-image: none;
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 768px;
+}
+
+.u-section-1 .u-text-1 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 60px auto 0;
+}
+
+.u-section-1 .u-list-1 {
+  margin-top: 123px;
+  margin-bottom: 53px;
+}
+
+.u-section-1 .u-repeater-1 {
+  grid-template-columns: repeat(3, 33.3333%);
+  min-height: 472px;
+  grid-gap: 0px;
+}
+
+.u-section-1 .u-list-item-1 {
+  background-image: none;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding: 0 30px;
+}
+
+.u-section-1 .u-image-1 {
+  width: 240px;
+  height: 240px;
+  margin: -27px auto 0;
+}
+
+.u-section-1 .u-text-2 {
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 16px 0 0;
+}
+
+.u-section-1 .u-text-3 {
+  font-weight: 700;
+  margin: 12px 0 0;
+}
+
+.u-section-1 .u-text-4 {
+  font-weight: 300;
+  font-style: normal;
+  margin: 23px 0 0;
+}
+
+.u-section-1 .u-social-icons-1 {
+  white-space: nowrap;
+  height: 27px;
+  min-height: 16px;
+  width: 101px;
+  min-width: 68px;
+  margin: 20px auto 0;
+}
+
+.u-section-1 .u-icon-1 {
+  height: 100%;
+}
+
+.u-section-1 .u-icon-2 {
+  height: 100%;
+}
+
+.u-section-1 .u-icon-3 {
+  height: 100%;
+}
+
+.u-section-1 .u-list-item-2 {
+  background-image: none;
+}
+
+.u-section-1 .u-container-layout-2 {
+  padding: 0 30px;
+}
+
+.u-section-1 .u-image-2 {
+  width: 240px;
+  height: 240px;
+  margin: -27px auto 0;
+}
+
+.u-section-1 .u-text-5 {
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 16px 0 0;
+}
+
+.u-section-1 .u-text-6 {
+  font-weight: 700;
+  margin: 12px 0 0;
+}
+
+.u-section-1 .u-text-7 {
+  font-weight: 300;
+  font-style: normal;
+  margin: 23px 0 0;
+}
+
+.u-section-1 .u-social-icons-2 {
+  white-space: nowrap;
+  height: 27px;
+  min-height: 16px;
+  width: 101px;
+  min-width: 68px;
+  margin: 20px auto 0;
+}
+
+.u-section-1 .u-icon-4 {
+  height: 100%;
+}
+
+.u-section-1 .u-icon-5 {
+  height: 100%;
+}
+
+.u-section-1 .u-icon-6 {
+  height: 100%;
+}
+
+.u-section-1 .u-list-item-3 {
+  background-image: none;
+}
+
+.u-section-1 .u-container-layout-3 {
+  padding: 0 30px;
+}
+
+.u-section-1 .u-image-3 {
+  width: 240px;
+  height: 240px;
+  object-position: 50% 94.17%;
+  margin: -27px auto 0;
+}
+
+.u-section-1 .u-text-8 {
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 16px 0 0;
+}
+
+.u-section-1 .u-text-9 {
+  font-weight: 700;
+  margin: 12px 0 0;
+}
+
+.u-section-1 .u-text-10 {
+  font-weight: 300;
+  font-style: normal;
+  margin: 23px 0 0;
+}
+
+.u-section-1 .u-social-icons-3 {
+  white-space: nowrap;
+  height: 27px;
+  min-height: 16px;
+  width: 101px;
+  min-width: 68px;
+  margin: 20px auto 0;
+}
+
+.u-section-1 .u-icon-7 {
+  height: 100%;
+}
+
+.u-section-1 .u-icon-8 {
+  height: 100%;
+}
+
+.u-section-1 .u-icon-9 {
+  height: 100%;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-repeater-1 {
+    grid-template-columns: repeat(3, 33.333333333333336%);
+    min-height: 389px;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-bottom: 30px;
+  }
+
+  .u-section-1 .u-container-layout-2 {
+    padding-bottom: 30px;
+  }
+
+  .u-section-1 .u-container-layout-3 {
+    padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 1264px;
+  }
+
+  .u-section-1 .u-list-1 {
+    margin-bottom: 60px;
+  }
+
+  .u-section-1 .u-repeater-1 {
+    grid-template-columns: repeat(2, 50%);
+    min-height: 968px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 1669px;
+  }
+
+  .u-section-1 .u-repeater-1 {
+    grid-template-columns: 100%;
+    min-height: 1373px;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-container-layout-2 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-container-layout-3 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 1721px;
+  }
+
+  .u-section-1 .u-text-1 {
+    font-size: 2.25rem;
+  }
+
+  .u-section-1 .u-repeater-1 {
+    min-height: 1451px;
+  }
+}
