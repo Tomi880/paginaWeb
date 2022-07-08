@@ -1,0 +1,59 @@
+{% extends 'crud/base.html' %}
+
+{% block title %}formulario productos{% endblock %}
+{% load static %}
+
+{% block content %}
+{% load static %}
+<div class="container mt-4 py-5 text-white bg-dark">
+    <h1>Registro Nuevos Productos</h1>
+</div>
+<div class="container mt-4 mb-4">
+    <div class="row">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group mb-3">
+                <label for="idProducto" class="fw-bold">Código Producto</label>
+                <div class="input-group">
+                    {{form.idProducto}}
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="descripcion" class="fw-bold">Descripción</label>
+                <div class="input-group">
+                    {{form.descripcion}}
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="precio" class="fw-bold">Precio</label>
+                <div class="input-group">
+                    {{form.precio}}
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="stock" class="fw-bold">Stock</label>
+                <div class="input-group">
+                    {{form.stock}}
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="imagen" class="fw-bold">Imagen</label>
+                <div class="input-group">
+                    {{form.imagen}}
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="marca" class="fw-bold">Marca</label>
+                <div class="input-group">
+                    {{form.marca}}
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <input type="submit" class="btn btn-outline-primary btn-block py-2" id="enviar" value="Registrar">
+                <input type="reset" class="btn btn-outline-secondary btn-block py-2" id="limpiar" value="Limpiar">
+                <a class="btn btn-outline-success btn-block py-2" href="{% url 'lista_productos' %}">Volver</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
