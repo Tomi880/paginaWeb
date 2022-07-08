@@ -19,4 +19,5 @@ def apiSismos(request):
     return render(request,"core/apiSismos.html")
 
 def productos(request):
-    return render(request,"core/productos.html")
+    context = {'productos':Producto.objects.all()}
+    return render(request, "core/productos.html",context)
