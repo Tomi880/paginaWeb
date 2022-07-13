@@ -3,20 +3,26 @@
 {% block title %}formulario productos{% endblock %}
 {% load static %}
 
-{% block content %}
+{% block main_content %}
+{% include 'crud/navbar.html' %}
 {% load static %}
-<div class="container mt-4  py-5 text-white bg-dark text-center">
+<div class="container mt-4 py-5 text-white bg-dark text-center">
     <h1>Listado Productos</h1>    
 </div>
 <div class="container-fluid mt-4 mb-4">
-    <div class="row text-center">
-        <div class="col-2 mx-auto">
-            <a class="text-decoration-none fs-1" href="{% url 'form_productos' %}">
-                <i class="fa-solid fa-file-circle-plus"></i>
-            </a>
-        </div>
-    </div>
-    <div class="row">        
+    <div class="row">
+        {% if 'OK' in request.GET %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>CORRECT!</strong> Producto creado correctamente.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endif %}
+        {% if 'FAIL' in request.GET %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>ERROR!</strong> No se pudo completar la acción realizada. Intentelo nuevamente.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endif %}        
         <div class="table-responsive">
             <table class="table table-hover">
                 <thead class="table-dark">
@@ -48,11 +54,20 @@
                                 </td>
                             {% endif %}
                             <td>
-                                <a class="btn btn-outline-warning" href="/crud/{{producto.idProducto}}/update">
-                                    <i class="fa-solid fa-pen"></i>
+                                <a class="text-decoration-none" href="/crud/{{producto.idProducto}}">
+                                    <span class="text-dark fs-2">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </span>
                                 </a>
-                                <a class="btn btn-outline-danger" href="/crud/{{producto.idProducto}}/delete">
-                                    <i class="fa-solid fa-trash-can"></i>
+                                <a class="text-decoration-none" href="{% url 'actualizar_producto' producto.idProducto %}">
+                                    <span class="text-dark fs-2">
+                                        <i class="fa-solid fa-pencil-alt"></i>
+                                    </span>
+                                </a>
+                                <a class="text-decoration-none modal-borrar" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-href="/crud/{{producto.idProducto}}/delete">
+                                    <span class="text-dark fs-2">
+                                        <i class="fa-solid fa-trash-alt"></i>
+                                    </span>
                                 </a>
                             </td>
                         </tr>
@@ -62,4 +77,31 @@
         </div>
     </div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Mensajes</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6 class="modal-title">Estas seguro que deseas eliminar el producto seleccionado?<br>Este proceso no se puede deshacer.</h6>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">No</button>
+                <a href="#" id="confirmar-borrar" class="btn btn-danger">Si</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    $('.modal-borrar').on('click',function() {
+        const href = $(this).attr('data-href');
+        $('#confirmar-borrar').attr('href',href);
+    })
+</script>
 {% endblock %}
