@@ -1,7 +1,7 @@
 from dataclasses import field
 from django import forms
 from django.forms import ModelForm, widgets
-from .models import Producto, Marca
+from .models import *
 
 class ProductoForm(ModelForm):
 

@@ -13,163 +13,17 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'crud/css/styles.css' %}">
 
-    <link rel="icon" href="{% static 'core/img/logo.svg' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'crud/img/configuracion.svg' %}" type="image/x-icon">
 
-    <title>{% block title %}{% endblock %} Wotaku</title>
+    {% block extra_css %}{% endblock %}
+
+    <title>{% block title %}{% endblock %} Crud</title>
 </head>
-
 <body>
-<!--INICIO Seccion NAV-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-danger sticky-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'index' %}">
-                <img class="img-logo" src="{% static 'core/img/logo.svg' %}" alt="Logo-Empresa">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item text-dark">
-                        <a class="nav-link text-dark" href="{% url 'index' %}">Inicio</a>
-                    </li>
-                    <li class="nav-item text-dark">
-                        <a class="nav-link text-dark" href="{% url 'nosotros' %}">Sobre Nosotros</a>
-                    </li>
-                    <li class="nav-item text-dark">
-                        <a class="nav-link text-dark" href="{% url 'contacto' %}">Contacto</a>
-                    </li>
-                    <li class="nav-item text-dark">
-                        <a class="nav-link text-dark" href="{% url 'apiSismos' %}">Ultimo sismos</a>
-                    </li>
-                    <li class="nav-item text-dark"></li>
-                        <a class="nav-link text-dark" href="{% url 'productos' %}">Productos</a>
-                    </li>
-                    <li class="nav-item text-dark" id="fecha1">
-                    </li>
-                    <li class="nav-item info-clima text-dark" id="info-clima">
-                    </li>  
-                    <li class="nav-item text-dark"><button onclick="findMe()">Mostrar Ubicacion</button>
-                    </li>
-                    <li class="nav-item text-dark" id="map">
-                    </li>
-                    <li class="nav-item text-dark" id="reloj">
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!--FIN Seccion NAV-->
 
-    <!--INICIO Sección MAIN-->
-    <main>
-    {% block content %}{% endblock %}
-
-    {% block secondary_content %}{% endblock %}    
-    </main>
-    <!--Fin Sección MAIN-->
-
-    <!--INICIO Seccion FOOTER-->
-    <footer>
-        <div class="container-fluid py-5 mt-2 bg-danger text-white">
-            <div class="row text-dark">
-                <div class="col-md-4 text-center mb-3">
-                    <img class="img-logo d-inline" src="{% static 'core/img/logo.svg' %}" alt="Rocket">
-                    <p class="d-inline">&copy;2022 - Wotaku</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h4 class="text-dark">Mapa del sitio</h4>
-                    <div class="row col-6">
-                        <hr>
-                    </div>
-                    <ul class="nav flex-column ">
-                        <li class="nav-item">
-                            <a class="nav-link active text-dark" href="{% url 'index' %}">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="{% url 'nosotros' %}">Nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="{% url 'contacto' %}">Contacto</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="{% url 'apiSismos' %}">Ultimos sismos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="{% url 'productos' %}">Productos</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card bg-transparent border-danger">
-                        <div class="card-header">
-                            <h4 class="card-title">¡Subscríbete a nuestra pagina</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="input-group mb-3">
-                                <input type="email" id="email_subscriptor" name="email_subscriptor" class="form-control"
-                                    placeholder="Ingresa tu correo electrónico">
-                                <button class="btn btn-outline-dark" type="button"
-                                    id="btn_subscriptor">Enviar</button>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <ul class="nav">
-                                <li>
-                                    <a class="nav-link" href="http://www.facebook.com" target="blank">
-                                        <span class="text-dark fs-1">
-                                            <i class="fa-brands fa-facebook"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="http://www.instagram.com" target="blank">
-                                        <span class="text-dark fs-1">
-                                            <i class="fa-brands fa-instagram"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="http://www.twitter.com" target="blank">
-                                        <span class="text-dark fs-1">
-                                            <i class="fa-brands fa-twitter"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="http://www.twitch.com" target="blank">
-                                        <span class="text-dark fs-1">
-                                            <i class="fa-brands fa-twitch"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="http://www.tiktok.com" target="blank">
-                                        <span class="text-dark fs-1">
-                                            <i class="fa-brands fa-tiktok"></i>
-                                        </span>
-                                    </a>
-
-                                    <h3 id="DarkModetext">Dark Mode is OFF</h3>
-                                    <button onclick="darkMode()">Darkmode</button>
-                                    <button onclick="lightMode()">LightMode</button>
-
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="row p-2 text-dark text-center">
-                <p>¡Gracias por visitar nuestra pagina!</p>
-            </div>
-        </div>
-    </footer>
-    <!--FIN Seccion FOOTER-->
+    {% block main_content %}{% endblock %}
 
     <!--Script de Jquery, Popper y Bootstrap-->
 
@@ -184,13 +38,11 @@
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
         crossorigin="anonymous"></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1IH_7XELVMY_fFNucrU5MUKAuw-xEpbI"></script>
-
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script src="{% static 'core/js/javascripts.js' %}"></script>
+
+    {% block extra_js %}{% endblock %}
 
 </body>
 
