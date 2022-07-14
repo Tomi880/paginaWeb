@@ -25,7 +25,10 @@ def detalle_productos(request,product_id):
 def actualizar_productos(request, product_id):
     try:
         producto = Producto.objects.get(idProducto=product_id)
-        form = ProductoForm(instance=producto)
+        if producto:
+            form = ProductoForm(instance=producto)
+        else:
+            return redirect(reverse('lista_productos') + "?FAIL")
 
         if request.method == 'POST':
             form = ProductoForm(request.POST,request.FILES,instance=producto)
