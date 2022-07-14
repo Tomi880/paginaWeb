@@ -1,7 +1,8 @@
 {% extends 'crud/base.html' %}
 
-{% block title %}{{producto.idProducto}}{% endblock %}
 {% load static %}
+
+{% block title %}{{producto.idProducto}}{% endblock %}
 
 {% block main_content %}
 {% include 'crud/navbar.html' %}
@@ -22,9 +23,7 @@
                 <li class="mb-2">Descripción: <p class="fw-bold">{{producto.descripcion}}</p></li>
                 <li class="mb-2">Marca: <p class="fw-bold">{{producto.marca}}</p></li>
                 <li class="mb-2">Precio: <p class="fw-bold">{{producto.precio}}</p></li>
-                <li class="mb-2">Stock: <p class="fw-bold">{{producto.stock}}</p></li>
-                <li class="mb-2 text-muted fst-italic">Registrado: {{producto.creado | date:'d-m-yy'}}</li>
-                <li class="mb-2 text-muted fst-italic">Última actualización: {{producto.actualizado | date:'d-m-yy H:m'}}</li>                
+                <li class="mb-2">Stock: <p class="fw-bold">{{producto.stock}}</p></li>             
             </ul>
             <div class="row col-4">
                 <div class="btn-group" role="group">
