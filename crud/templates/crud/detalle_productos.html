@@ -23,19 +23,19 @@
                 <li class="mb-2">Descripción: <p class="fw-bold">{{producto.descripcion}}</p></li>
                 <li class="mb-2">Marca: <p class="fw-bold">{{producto.marca}}</p></li>
                 <li class="mb-2">Precio: <p class="fw-bold">{{producto.precio}}</p></li>
-                <li class="mb-2">Stock: <p class="fw-bold">{{producto.stock}}</p></li>             
+                <li class="mb-2">Stock: <p class="fw-bold">{{producto.stock}}</p></li>
+                <li class="mb-2 text-muted fst-italic">Registrado: {{producto.creado | date:'d-m-yy'}}</li>
+                <li class="mb-2 text-muted fst-italic">Última actualización: {{producto.actualizado | date:'d-m-yy H:m'}}</li>             
             </ul>
-            <div class="row col-4">
-                <div class="btn-group" role="group">
-                    <div class="col-2">
-                        <a class="btn btn-outline-primary" href="{% url 'lista_productos' %}">Volver</a>
-                    </div>
-                    <div class="col-2">
-                        <a class="btn btn-outline-warning" href="">Editar</a>
-                    </div>
-                    <div class="col-2">
-                        <a class="btn btn-outline-danger modal-borrar" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-href="/crud/{{producto.idProducto}}/delete">Eliminar</a>
-                    </div>
+            <div class="row">
+                <div class="col-2">
+                    <a class="btn btn-outline-primary" href="{% url 'lista_productos' %}">Volver</a>
+                </div>
+                <div class="col-2">
+                    <a class="btn btn-outline-warning" href="/crud/{{producto.idProducto}}/update">Actualizar</a>
+                </div>
+                <div class="col-2">
+                    <a class="btn btn-outline-danger modal-borrar" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-href="/crud/{{producto.idProducto}}/delete">Eliminar</a>
                 </div>
             </div>
         </div>        

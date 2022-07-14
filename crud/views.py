@@ -13,12 +13,12 @@ def lista_productos(request):
     context = {'productos':Producto.objects.all()}
     return render(request,'crud/lista_productos.html',context)
 
-def detalle_productos(request, product_id):
+def detalle_productos(request,product_id):
     try:
         producto = Producto.objects.get(idProducto=product_id)
         if producto:
             context = {'producto':producto}
-            return render(request,'crud/detalle_productos')
+            return render(request,'crud/detalle_productos.html',context)
     except:
         return redirect(reverse('lista_productos') + "?FAIL")
 
