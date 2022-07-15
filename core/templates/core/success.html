@@ -1,0 +1,21 @@
+{% extends "core/base.html"%}
+
+{% block title %}Bienvenido {{request.session.usuario.first_name}} {{request.session.usuario.last_name}}{% endblock %}
+
+
+{% block content %}
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="container">
+        <h1>Bienvenido Nombre: {{request.session.usuario.first_name}}  ROL: {{request.session.usuario.rol}}</h1>
+    </div>
+
+
+{% endblock %}

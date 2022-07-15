@@ -94,3 +94,107 @@ setInterval(()=>{
   let hora = new Date();
   mostrarReloj.innerHTML = hora.toLocaleTimeString();
 },1000);
+
+//Validar contacto
+
+const formulario = document.getElementById('form')
+const inputs = document.querySelectorAll('#form input')
+const tarea = document.querySelectorAll('#form textarea')
+const select = document.querySelectorAll('#form select')
+
+
+//Expresiones modelo
+const expresiones = {
+  rut : /^[0-9]+\-[0-9kK]$/,
+  nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+  correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+  telefono: /^\d{8,9}$/, // 8 o 9 numeros.
+  comentario: /^[a-zA-ZÀ-ÿ\s]{0,120}$/
+}
+//Estado de los campos (valido o invalido)
+const valides = {
+    rut: false,
+    nombre: false,
+    correo: false,
+    numero: false,
+    //password: false,
+    comentario : false,
+    check: false,
+  }
+//validacion de formulario
+  const validarForm = (event) => {
+    switch(event.target.name) {
+      case "rut":
+          validarInput(expresiones.rut, event.target, event.target.name);
+      break;
+      case "nombre":
+          validarInput(expresiones.nombre, event.target, event.target.name);
+      break;
+      case "correo":
+        validarInput(expresiones.correo, event.target, event.target.name);
+      break;
+      case "numero":
+          validarInput(expresiones.telefono, event.target, event.target.name);
+      break;
+      case "comentario":
+        validarInput(expresiones.comentario, event.target, event.target.name);
+      break;
+      case "check":
+        validarCheck();
+      break;
+  }
+}
+//Validacion de campos
+const validarInput = (expresiones, input , cuadro) => {
+    if(expresiones.test(input.value)){
+      document.getElementById(cuadro).classList.add('is-valid');
+      document.getElementById(cuadro).classList.remove('is-invalid');
+      valides[cuadro] = true;
+    }else {
+      document.getElementById(cuadro).classList.add('is-invalid');
+      document.getElementById(cuadro).classList.remove('is-valid');
+      valides[cuadro] = false;
+    }
+  }
+//Validacion de checkbox
+  const validarCheck = () =>{
+    const check = form.check.checked
+    if(check ){
+      document.getElementById('invalidCheck').classList.add('is-valid');
+      document.getElementById('invalidCheck').classList.remove('is-invalid');
+      valides['check'] = true;
+    }else{
+      document.getElementById('invalidCheck').classList.add('is-invalid');
+      document.getElementById('invalidCheck').classList.remove('is-valid');
+      valides['check'] = false;
+    }
+  }
+//Guardar datos y alerta
+  const alertaInfo = () =>{
+    const rt = document.getElementById('rut').value
+    const nom = document.getElementById('nombre').value
+    const cor = document.getElementById('correo').value
+    const num = document.getElementById('numero').value
+    const comen = document.getElementById('comentario').value
+    const sel = form.select.value
+  
+    alert('Informacion registrada\nRut:' +rt+ '\nNombre:'+nom+
+        '\nCorreo: '+cor+'\nNumero: '+num+ '\nComentario: '+comen+
+        '\nOpcion Seleccionada: '+sel
+    ); 
+  }
+
+//Evita el enviar datos incompletos
+
+(function () {
+    formulario.addEventListener('submit', (event) => {
+    
+      if(valides.select && valides.nombre && valides.apellido && valides.numero 
+        && valides.rut && valides.direccion && valides.correo && valides.comentario && valides.check ){
+        }
+        else{
+          event.preventDefault();
+        }
+      } 
+    );
+  })();
